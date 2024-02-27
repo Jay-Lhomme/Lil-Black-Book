@@ -1,12 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Button } from 'react-bootstrap';
-import { React, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useAuth } from '../utils/context/authContext';
 import { getDates } from '../api/dateData';
 import DateCard from '../components/DateCard';
 
-function Home() {
+function Dates() {
   const [dates, setDates] = useState([]);
 
   const { user } = useAuth();
@@ -30,8 +30,7 @@ function Home() {
         ))}
       </div>
     </div>
-
   );
 }
 
-export default Home;
+export default Dates;
