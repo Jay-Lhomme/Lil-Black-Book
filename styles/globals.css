@@ -18,5 +18,11 @@ a {
 }
 
 body {
-  background-color: #88effd;
+  background-color: black;
+  background-image: url(https://i0.wp.com/www.17patterns.com/wp-content/uploads/2021/10/A17-VE-07W_Venation-Dark-SQ-WEB.jpg?fit=1600%2C1600&ssl=1);
+  background-size: cover;
 }
+
+/* nav {
+  background-image: url(https://media.istockphoto.com/id/1170752078/photo/black-stone-texture-dark-slate-background-top-view.webp?b=1&s=170667a&w=0&k=20&c=nMU1mU4xUjQZ04BDhBh_f4jhwMpaPzv_weV9BiojEvE=);
+} */
