@@ -22,7 +22,7 @@ function Dates() {
   return (
     <div className="text-center my-4">
       <Link href="/dates/new" passHref>
-        <Button>Add a Date</Button>
+        <Button variant="warning">Add a Date</Button>
       </Link>
       <div className="d-flex flex-wrap">
         {dates.map((date) => (

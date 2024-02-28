@@ -14,7 +14,6 @@ function Locations() {
   const getAllTheLocations = () => {
     getLocations(user.uid).then(setLocations);
   };
-
   useEffect(() => {
     getAllTheLocations();
   }, []);

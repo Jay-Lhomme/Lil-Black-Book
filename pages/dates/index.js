@@ -11,10 +11,6 @@ function Dates() {
 
   const { user } = useAuth();
 
-  // const getAllTheDates = useCallback(() => {
-  //   getDates(user.uid).then(setDates);
-  // });
-
   const getAllTheDates = () => {
     getDates(user.uid).then(setDates);
   };

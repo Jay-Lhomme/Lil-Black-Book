@@ -47,7 +47,7 @@ function DateCard({ dateObj, onUpdate }) {
 
   return (
     <Card style={{
-      background: flagCount(dateObj), width: '18rem', margin: '10px', border: 'solid black 5px',
+      background: flagCount(dateObj), width: '18rem', margin: '10px', border: 'solid goldenrod 5px',
     }}
     >
       <CardHeader style={{ fontStyle: 'bold', fontSize: '30px', color: 'seashell' }}>{dateCount(dateObj)}</CardHeader>

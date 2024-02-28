@@ -87,7 +87,7 @@ function LogForm({ obj }) {
           {
             dates.map((date) => (
               <option
-                key={date.firebaseKey}
+                key={date.firebaseKey?.name}
                 value={date.name}
               >
                 {date.name}
@@ -113,6 +113,7 @@ function LogForm({ obj }) {
               <option
                 key={location.firebaseKey}
                 value={location.name}
+                // data-name={location.name}
               >
                 {location.name}
               </option>
