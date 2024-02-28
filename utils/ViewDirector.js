@@ -1,11 +1,24 @@
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 import { useAuth } from './context/authContext';
 import Loading from '../components/Loading';
 import Signin from '../components/Signin';
 import NavBar from '../components/NavBar';
+import Google from '../components/Google';
+import Error from '../components/Error-404';
 
 const ViewDirectorBasedOnUserAuthStatus = ({ component: Component, pageProps }) => {
+// Current page renders <Google /> to Start;
   const { user, userLoading } = useAuth();
+  const [currentPage, setCurrentPage] = useState('google');
+
+  // Functions to switch current page
+  const switchToErrorPage = () => {
+    setCurrentPage('error');
+  };
+  const switchToSignInPage = () => {
+    setCurrentPage('signin');
+  };
 
   // if user state is null, then show loader
   if (userLoading) {
@@ -16,7 +29,7 @@ const ViewDirectorBasedOnUserAuthStatus = ({ component: Component, pageProps }) 
   if (user) {
     return (
       <>
-        <NavBar /> {/* NavBar only visible if user is logged in and is in every view */}
+        <NavBar />
         <div className="container">
           <Component {...pageProps} />
         </div>
@@ -24,6 +37,12 @@ const ViewDirectorBasedOnUserAuthStatus = ({ component: Component, pageProps }) 
     );
   }
 
+  // Renders Google/Error/Signin component based on the current page/case
+  if (currentPage === 'google') {
+    return <Google onSignInClick={switchToErrorPage} />;
+  } if (currentPage === 'error') {
+    return <Error onSignInClick={switchToSignInPage} />;
+  }
   return <Signin />;
 };
 

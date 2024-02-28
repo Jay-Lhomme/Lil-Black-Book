@@ -22,7 +22,7 @@ function Logs() {
   return (
     <div className="text-center my-4">
       <Link href="/logs/new" passHref>
-        <Button>Add a Log</Button>
+        <Button variant="warning">Add a Log</Button>
       </Link>
       <div className="d-flex flex-wrap">
         {logs.map((log) => (

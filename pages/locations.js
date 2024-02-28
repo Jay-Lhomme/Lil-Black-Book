@@ -22,7 +22,7 @@ function Locations() {
   return (
     <div className="text-center my-4">
       <Link href="/locations/new" passHref>
-        <Button>Add a Location</Button>
+        <Button variant="warning">Add a Location</Button>
       </Link>
       <div className="d-flex flex-wrap">
         {locations.map((location) => (

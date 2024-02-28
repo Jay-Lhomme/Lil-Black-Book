@@ -14,7 +14,6 @@ function Logs() {
   const getAllTheLogs = () => {
     getLogs(user.uid).then(setLogs);
   };
-
   useEffect(() => {
     getAllTheLogs();
   }, []);

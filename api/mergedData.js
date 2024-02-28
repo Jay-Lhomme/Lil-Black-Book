@@ -42,7 +42,7 @@ const deleteDatesLogs = (dateId) => new Promise((resolve, reject) => {
 const deleteLocationLogs = (locationId) => new Promise((resolve, reject) => {
   getLocationslogs(locationId).then((logsArray) => {
     console.warn(logsArray, 'Location Logs');
-    const deletelogPromises = logsArray.map((log) => deleteSingleLog(log.firebaseKey));
+    const deletelogPromises = logsArray.map((log) => deleteSingleLog(log.locationId));
 
     Promise.all(deletelogPromises).then(() => {
       deleteSingleLocation(locationId).then(resolve);

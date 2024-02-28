@@ -14,7 +14,7 @@ function LocationCard({ locationObj, onUpdate }) {
 
   return (
     <Card style={{
-      width: '18rem', margin: '10px', background: 'dimgrey', color: 'seashell',
+      width: '18rem', margin: '10px', background: 'dimgrey', color: 'seashell', border: 'solid goldenrod 5px',
     }}
     >
       <Card.Img variant="top" src="holder.js/100px180" />
