@@ -1,6 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import { Button } from 'react-bootstrap';
+import Link from 'next/link';
 import { getSingleLocation } from '../../api/locationData';
 
 export default function ViewLocation() {
@@ -17,6 +19,9 @@ export default function ViewLocation() {
     <div className="mt-5 d-flex flex-wrap">
       <div className="d-flex flex-column">
         <img src={locationDetails.dateId?.image} alt={locationDetails.name} style={{ width: '300px', border: 'solid black 5px' }} />
+        <Link href="/locations" passHref>
+          <Button variant="warning" className="m-2">return</Button>
+        </Link>
       </div>
       <div className="text-white ms-5 details">
         <h1>

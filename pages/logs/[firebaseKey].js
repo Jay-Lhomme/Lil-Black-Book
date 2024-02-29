@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 // import viewLogDetails from '../../api/mergedData';
 // import { getSingleLog } from '../../api/logData';
+import { Button } from 'react-bootstrap';
+import Link from 'next/link';
 import { viewLogDetails } from '../../api/mergedData';
 
 export default function ViewLog() {
@@ -19,6 +21,9 @@ export default function ViewLog() {
     <div className="mt-5 d-flex flex-wrap">
       <div className="d-flex flex-column">
         <img src={logDetails.dateId?.image} alt={logDetails.dateId?.name} style={{ width: '300px' }} />
+        <Link href="/dates" passHref>
+          <Button variant="warning" className="m-2">return</Button>
+        </Link>
       </div>
       <div className="text-white ms-5 details">
         <h1>

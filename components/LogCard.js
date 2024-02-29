@@ -11,6 +11,8 @@ function LogCard({ logObj, onUpdate }) {
     }
   };
 
+  // const locationObj = locations.find((location) => location.firebaseKey === logObj.locationId);
+
   return (
     <Card style={{
       width: '18rem', margin: '10px', background: 'dimgrey', color: 'seashell', border: 'solid goldenrod 5px',

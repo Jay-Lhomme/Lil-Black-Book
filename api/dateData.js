@@ -2,8 +2,8 @@ import { clientCredentials } from '../utils/client';
 
 const endpoint = clientCredentials.databaseURL;
 
-const getDates = () => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/dates.json`, {
+const getDates = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/dates.json?orderBy="uid"&equalTo="${uid}"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -82,7 +82,7 @@ const getDatesLogs = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const scorchedEarth = () => new Promise((resolve, reject) => {
+const scorchedEarthDates = () => new Promise((resolve, reject) => {
   fetch(`${endpoint}/dates.json`, {
     method: 'DELETE',
     headers: {
@@ -94,6 +94,44 @@ const scorchedEarth = () => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const newEarthDates = (payload) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}.json`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
+const test = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/truth.json`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => resolve(response))
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
+const test2 = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/truth.json`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify('test'),
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
 export {
-  getDates, getSingleDate, createDate, deleteSingleDate, updateDate, getDatesLogs, scorchedEarth,
+  getDates, getSingleDate, createDate, deleteSingleDate, updateDate, getDatesLogs, scorchedEarthDates, newEarthDates, test2, test,
 };
