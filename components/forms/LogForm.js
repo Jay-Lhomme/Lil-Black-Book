@@ -54,93 +54,101 @@ function LogForm({ obj }) {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <h2 className="text-white mt-5">{obj.firebaseKey ? 'Update' : 'Create'} Log</h2>
+    <div className="containerF">
+      <div className="form_areaF">
+        <h2 className="titleF">{obj.firebaseKey ? 'Update' : 'Create'} Log</h2>
+        <Form action="" onSubmit={handleSubmit}>
+          <div className="form_groupF">
 
-      {/* {DAY INPUT} */}
-      <FloatingLabel
-        controlId="floatingInput1"
-        label="Day of Date"
-        className="mb-3"
-      >
-        <Form.Control
-          type="date"
-          placeholder="Day of Date"
-          name="day"
-          value={formInput.day}
-          onChange={handleChange}
-          required
-        />
-      </FloatingLabel>
+            {/* {DAY INPUT} */}
+            <FloatingLabel
+              controlId="floatingInput1"
+              label="Day of Date"
+              className="sub_titleF"
+            >
+              <Form.Control
+                className="form_styleF"
+                type="date"
+                placeholder="Day of Date"
+                name="day"
+                value={formInput.day}
+                onChange={handleChange}
+                required
+              />
+            </FloatingLabel>
 
-      {/* {PERSON SELECT} */}
-      <FloatingLabel controlId="floatingSelect1" label="Person">
-        <Form.Select
-          aria-label="Person"
-          name="dateId"
-          className="mb-3"
-          value={formInput.dateId}
-          onChange={handleChange}
-          required
-        >
-          <option value="">Select a Person</option>
-          {
+            {/* {PERSON SELECT} */}
+            <FloatingLabel className="sub_titleF" controlId="floatingSelect1" label="Person">
+              <Form.Select
+                aria-label="Person"
+                name="dateId"
+                className="form_styleF"
+                value={formInput.dateId}
+                onChange={handleChange}
+                required
+              >
+                <option value="">Select a Person</option>
+                {
             dates.map((date) => (
               <option
-                key={date.firebaseKey?.name}
+                key={date.firebaseKey}
                 value={date.name}
               >
                 {date.name}
               </option>
             ))
           }
-        </Form.Select>
-      </FloatingLabel>
+              </Form.Select>
+            </FloatingLabel>
 
-      {/* {LOCATION SELECT} */}
-      <FloatingLabel controlId="floatingSelect2" label="Location">
-        <Form.Select
-          aria-label="Location"
-          name="locationId"
-          className="mb-3"
-          value={formInput.locationId}
-          onChange={handleChange}
-          required
-        >
-          <option value="">Select a Location</option>
-          {
+            {/* {LOCATION SELECT} */}
+            <FloatingLabel className="sub_titleF" controlId="floatingSelect2" label="Location">
+              <Form.Select
+                aria-label="Location"
+                name="locationId"
+                className="form_styleF"
+                value={formInput.locationId}
+                onChange={handleChange}
+                required
+              >
+                <option value="">Select a Location</option>
+                {
             locations.map((location) => (
               <option
                 key={location.firebaseKey}
                 value={location.name}
-                // data-name={location.name}
               >
                 {location.name}
               </option>
             ))
           }
-        </Form.Select>
-      </FloatingLabel>
+              </Form.Select>
+            </FloatingLabel>
 
-      {/* {NOTES INPUT} */}
-      <FloatingLabel
-        controlId="floatingInput2"
-        label="Notes"
-        className="mb-3"
-      >
-        <Form.Control
-          type="text"
-          placeholder="Enter Notes"
-          name="notes"
-          value={formInput.notes}
-          onChange={handleChange}
-          required
-        />
-      </FloatingLabel>
+            {/* {NOTES INPUT} */}
+            <FloatingLabel
+              controlId="floatingInput2"
+              label="Notes"
+              className="sub_titleF"
+            >
+              <Form.Control
+                className="form_styleF"
+                type="text"
+                placeholder="Enter Notes"
+                name="notes"
+                value={formInput.notes}
+                onChange={handleChange}
+                required
+              />
+            </FloatingLabel>
 
-      {/* {SUBMIT BUTTON} */}
-      <Button type="submit">{obj.firebaseKey ? 'Update' : 'Create'} Log</Button>
-    </Form>
+            {/* {SUBMIT BUTTON} */}
+            <Button className="btnF" type="submit">{obj.firebaseKey ? 'Update' : 'Create'} Log</Button>
+          </div>
+        </Form>
+      </div>
+    </div>
+
   );
 }
 

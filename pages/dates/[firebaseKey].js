@@ -1,5 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
+import { Button } from 'react-bootstrap';
 import { useRouter } from 'next/router';
 import { getSingleDate } from '../../api/dateData';
 
@@ -30,6 +32,9 @@ export default function ViewDate() {
     <div className="mt-5 d-flex flex-wrap">
       <div className="d-flex flex-column">
         <img src={dateDetails.image} alt={dateDetails.name} style={{ width: '300px', border: flagCount(dateDetails.flag) }} />
+        <Link href="/dates" passHref>
+          <Button variant="warning" className="m-2">return</Button>
+        </Link>
       </div>
       <div className="text-white ms-5 details">
         <h1>

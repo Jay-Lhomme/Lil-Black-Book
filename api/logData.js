@@ -2,8 +2,8 @@ import { clientCredentials } from '../utils/client';
 
 const endpoint = clientCredentials.databaseURL;
 
-const getLogs = () => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/logs.json`, {
+const getLogs = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/logs.json?orderBy="uid"&equalTo="${uid}"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -70,6 +70,31 @@ const updateLog = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const scorchedEarthLogs = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/logs.json`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => resolve(response))
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
+const newEarthLogs = (payload) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}.json`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
 export {
-  getLogs, getSingleLog, deleteSingleLog, createLog, updateLog,
+  getLogs, getSingleLog, deleteSingleLog, createLog, updateLog, scorchedEarthLogs, newEarthLogs,
 };
