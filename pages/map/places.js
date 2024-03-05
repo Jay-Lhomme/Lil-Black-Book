@@ -10,7 +10,6 @@ import usePlacesAutocomplete, { getGeocode, getLatLng } from 'use-places-autocom
 import {
   Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption,
 } from '@reach/combobox';
-// import '../styles/globals.module.css';
 
 export default function Places() {
   const { isLoaded } = useLoadScript({

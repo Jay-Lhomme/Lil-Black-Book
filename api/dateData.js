@@ -82,6 +82,36 @@ const getDatesLogs = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getActiveDates = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/dates.json?orderBy="uid"&equalTo="${uid}"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      const active = Object.values(data).filter((date) => date.active === true);
+      resolve(active);
+    })
+    .catch(reject);
+});
+
+const getInactiveDates = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/dates.json?orderBy="uid"&equalTo="${uid}"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      const active = Object.values(data).filter((date) => date.active === false);
+      resolve(active);
+    })
+    .catch(reject);
+});
+
 const scorchedEarthDates = () => new Promise((resolve, reject) => {
   fetch(`${endpoint}/dates.json`, {
     method: 'DELETE',
@@ -132,6 +162,35 @@ const test2 = () => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const test3 = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/truth.json?orderBy="uid"&equalTo="${uid}"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data) {
+        resolve(Object.values(data));
+      } else {
+        resolve([]);
+      }
+    })
+    .catch(reject);
+});
+const test4 = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/truth/${firebaseKey}.json`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
 export {
-  getDates, getSingleDate, createDate, deleteSingleDate, updateDate, getDatesLogs, scorchedEarthDates, newEarthDates, test2, test,
+  getDates, getSingleDate, createDate, deleteSingleDate, updateDate, getDatesLogs, getActiveDates, getInactiveDates, scorchedEarthDates, newEarthDates, test2, test, test3, test4,
 };

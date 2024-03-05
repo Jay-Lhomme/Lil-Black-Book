@@ -28,6 +28,8 @@ export default function ViewDate() {
     return 'solid dimgrey 20px';
   };
 
+  const active = () => ((dateDetails.active === true) ? '✅' : '❌');
+
   return (
     <div className="mt-5 d-flex flex-wrap">
       <div className="d-flex flex-column">
@@ -62,6 +64,9 @@ export default function ViewDate() {
         </h4>
         <h4>
           <b style={{ color: 'bisque' }}>RED FLAGS:</b> {dateDetails.flag}
+        </h4>
+        <h4>
+          <b style={{ color: 'bisque' }}>ACTIVITY:</b> {active()}
         </h4>
       </div>
     </div>

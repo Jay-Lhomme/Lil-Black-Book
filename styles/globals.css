@@ -17,18 +17,20 @@ a {
   box-sizing: border-box;
 }
 
-/* body {
+body {
   background-color: black;
   background-image: url(https://i0.wp.com/www.17patterns.com/wp-content/uploads/2021/10/A17-VE-07W_Venation-Dark-SQ-WEB.jpg?fit=1600%2C1600&ssl=1);
   background-size: cover;
-} */
-
+}
+ nav {
+  background-color: goldenrod;
+ }
 /* nav {
   background-image: url(https://media.istockphoto.com/id/1170752078/photo/black-stone-texture-dark-slate-background-top-view.webp?b=1&s=170667a&w=0&k=20&c=nMU1mU4xUjQZ04BDhBh_f4jhwMpaPzv_weV9BiojEvE=);
 } */
 
 
-/* Date Form */
+/* Form */
 .containerF {
   display: flex;
   align-items: center;
@@ -42,7 +44,8 @@ a {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #EDDCD9;
+  /* background-color: #EDDCD9; */
+  background-color: #f7ba2b;
   height: auto;
   width: auto;
   border: 2px solid #264143;
@@ -105,98 +108,51 @@ a {
   padding: 5px;
 }
 
-/* card */
-.card {
-  width: 252px;
-  height: 265px;
-  background: white;
-  border-radius: 30px;
-  box-shadow: 15px 15px 30px #bebebe,
-             -15px -15px 30px #ffffff;
-  transition: 0.2s ease-in-out;
-}
-
-.img {
+/* Card */
+.cardC {
+  --background: linear-gradient(to left, #f7ba2b 0%, #ea5358 100%);
+  width: 190px;
+  height: 400px;
+  padding: 5px;
+  border-radius: 1rem;
+  overflow: visible;
+  background: #f7ba2b;
+  background: var(--background);
+  position: relative;
+  z-index: 1;
+ }
+ 
+ .cardC::after {
+  position: absolute;
+  content: "";
+  top: 30px;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  height: 100%;
   width: 100%;
-  height: 50%;
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
-  background: linear-gradient(#e66465, #9198e5);
-  display: flex;
-  align-items: top;
-  justify-content: right;
-}
+  transform: scale(0.8);
+  filter: blur(25px);
+  background: #f7ba2b;
+  background: var(--background);
+  transition: opacity .5s;
+ }
+ 
+ .cardC .titleC {
+  font-weight: bold;
+  letter-spacing: .1em;
+ }
+ 
+ /*Hover*/
+ .cardC:hover::after {
+  opacity: 0;
+ }
+ 
+ .cardC:hover .card-infoC {
+  color: #f7ba2b;
+  transition: color 1s;
+ }
 
-.save {
-  transition: 0.2s ease-in-out;
-  border-radius: 10px;
-  margin: 20px;
-  width: 30px;
-  height: 30px;
-  background-color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+/* wallpaper */
 
-.text {
-  margin: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: space-around;
-}
-
-.save .svg {
-  transition: 0.2s ease-in-out;
-  width: 15px;
-  height: 15px;
-}
-
-.icon-box {
-  margin-top: 15px;
-  width: 70%;
-  padding: 10px;
-  background-color: #e3fff9;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: left;
-}
-
-.icon-boxC svg {
-  width: 17px;
-}
-
-.textC .h3C {
-  font-family: 'Lucida Sans' sans-serif;
-  font-size: 15px;
-  font-weight: 600;
-  color: black;
-}
-
-.textC .pC {
-  font-family: 'Lucida Sans' sans-serif;
-  color: #999999;
-  font-size: 13px;
-}
-
-.icon-boxC .spanC {
-  margin-left: 10px;
-  font-family: 'Lucida Sans' sans-serif;
-  font-size: 13px;
-  font-weight: 500;
-  color: #9198e5;
-}
-
-.cardC:hover {
-  cursor: pointer;
-  box-shadow: 0px 10px 20px rgba(0,0,0,0.1);
-}
-
-.saveC:hover {
-  transform: scale(1.1) rotate(10deg);
-}
-
-.saveC:hover .svgC {
-  fill: #ced8de;
-}
+ 

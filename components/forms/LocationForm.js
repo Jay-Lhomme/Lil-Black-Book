@@ -143,7 +143,7 @@ LocationForm.propTypes = {
     name: PropTypes.string,
     address: PropTypes.string,
     notes: PropTypes.string,
-    count: PropTypes.string,
+    count: PropTypes.number,
     uid: PropTypes.string,
     firebaseKey: PropTypes.string,
   }),

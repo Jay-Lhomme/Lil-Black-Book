@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useAuth } from '../utils/context/authContext';
-import { getDates } from '../api/dateData';
+import { getActiveDates, getInactiveDates, getDates } from '../api/dateData';
 import DateCard from '../components/DateCard';
 
 function Dates() {
@@ -15,14 +15,25 @@ function Dates() {
     getDates(user.uid).then(setDates);
   };
 
+  const getAllTheActiveDates = () => {
+    getActiveDates(user.uid).then(setDates);
+  };
+
+  const getAllTheInactiveDates = () => {
+    getInactiveDates(user.uid).then(setDates);
+  };
+
   useEffect(() => {
     getAllTheDates();
   }, []);
 
   return (
-    <div className="text-center my-4">
+    <div className="text-center my-4" style={{ padding: '10px' }}>
+      <Button onClick={getAllTheDates} className="btnF" variant="warning">All Dates</Button>
+      <Button onClick={getAllTheActiveDates} className="btnF" variant="warning">Active Dates</Button>
+      <Button onClick={getAllTheInactiveDates} className="btnF" variant="warning">Inactive Dates</Button>
       <Link href="/dates/new" passHref>
-        <Button variant="warning">Add a Date</Button>
+        <Button className="btnF" variant="warning">Add a Date</Button>
       </Link>
       <div className="d-flex flex-wrap">
         {dates.map((date) => (

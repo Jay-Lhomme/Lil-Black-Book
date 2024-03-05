@@ -46,12 +46,14 @@ function DateCard({ dateObj, onUpdate }) {
   };
 
   return (
-    <Card style={{
-      background: flagCount(dateObj), width: '18rem', margin: '10px', border: 'solid goldenrod 5px',
-    }}
+    <Card
+      className="cardC"
+      style={{
+        background: flagCount(dateObj), width: '18rem', margin: '20px', border: 'solid goldenrod 5px',
+      }}
     >
       <CardHeader style={{ fontStyle: 'bold', fontSize: '30px', color: 'seashell' }}>{dateCount(dateObj)}</CardHeader>
-      <Card.Img variant="top" src={dateObj.image} alt={dateObj?.name} style={{ height: '300px', border: 'solid 1px black' }} />
+      <Card.Img className="imgC" variant="top" style={{ image: 'cover', height: '200px', border: 'solid 1px black' }} src={dateObj.image} alt={dateObj?.name} />
       <Card.Body>
         <Card.Title>{dateObj.name}</Card.Title>
         {/* VIEW BUTTON */}
