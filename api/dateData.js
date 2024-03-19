@@ -137,7 +137,7 @@ const newEarthDates = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const test = () => new Promise((resolve, reject) => {
+const testDlt = () => new Promise((resolve, reject) => {
   fetch(`${endpoint}/truth.json`, {
     method: 'DELETE',
     headers: {
@@ -149,7 +149,7 @@ const test = () => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const test2 = () => new Promise((resolve, reject) => {
+const test2get = () => new Promise((resolve, reject) => {
   fetch(`${endpoint}/truth.json`, {
     method: 'POST',
     headers: {
@@ -162,7 +162,7 @@ const test2 = () => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const test3 = (uid) => new Promise((resolve, reject) => {
+const test3uid = (uid) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/truth.json?orderBy="uid"&equalTo="${uid}"`, {
     method: 'GET',
     headers: {
@@ -179,7 +179,7 @@ const test3 = (uid) => new Promise((resolve, reject) => {
     })
     .catch(reject);
 });
-const test4 = (firebaseKey) => new Promise((resolve, reject) => {
+const test4fbk = (firebaseKey) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/truth/${firebaseKey}.json`, {
     method: 'DELETE',
     headers: {
@@ -192,5 +192,5 @@ const test4 = (firebaseKey) => new Promise((resolve, reject) => {
 });
 
 export {
-  getDates, getSingleDate, createDate, deleteSingleDate, updateDate, getDatesLogs, getActiveDates, getInactiveDates, scorchedEarthDates, newEarthDates, test2, test, test3, test4,
+  getDates, getSingleDate, createDate, deleteSingleDate, updateDate, getDatesLogs, getActiveDates, getInactiveDates, scorchedEarthDates, newEarthDates, test2get, testDlt, test3uid, test4fbk,
 };

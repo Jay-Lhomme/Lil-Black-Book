@@ -70,8 +70,8 @@ const updateLocation = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const getLocationslogs = (locationId) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/logs.json?orderBy="locationId"&equalTo="${locationId}"`, {
+const getLocationsLogs = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/logs.json?orderBy="locationId"&equalTo="${firebaseKey}"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -108,5 +108,5 @@ const newEarthLocations = (payload) => new Promise((resolve, reject) => {
 });
 
 export {
-  getLocations, getSingleLocation, deleteSingleLocation, createLocation, updateLocation, getLocationslogs, scorchedEarthLocations, newEarthLocations,
+  getLocations, getSingleLocation, deleteSingleLocation, createLocation, updateLocation, getLocationsLogs, scorchedEarthLocations, newEarthLocations,
 };

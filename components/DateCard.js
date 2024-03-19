@@ -16,30 +16,30 @@ function DateCard({ dateObj, onUpdate }) {
   };
 
   const dateCount = () => {
-    if (dateObj.count === '1') {
+    if (dateObj.count === 1) {
       return 'First';
-    } if (dateObj.count === '2') {
+    } if (dateObj.count === 2) {
       return 'Second';
-    } if (dateObj.count === '3') {
+    } if (dateObj.count === 3) {
       return 'Third';
-    } if (dateObj.count === '4') {
+    } if (dateObj.count === 4) {
       return 'Fouth';
-    } if (dateObj.count === '5') {
+    } if (dateObj.count === 5) {
       return 'Fith';
-    } if (dateObj.count === '0') {
+    } if (dateObj.count === 0) {
       return 'One Day';
     }
     return 'King';
   };
 
   const flagCount = () => {
-    if (dateObj.flag === '1') {
+    if (dateObj.flag === 1) {
       return 'goldenrod';
-    } if (dateObj.flag === '2') {
+    } if (dateObj.flag === 2) {
       return 'orangered';
-    } if (dateObj.flag === '3') {
+    } if (dateObj.flag === 3) {
       return 'darkred';
-    } if (dateObj.flag === '4') {
+    } if (dateObj.flag === 4) {
       return 'black';
     }
     return 'dimgrey';
@@ -77,8 +77,8 @@ DateCard.propTypes = {
   dateObj: PropTypes.shape({
     name: PropTypes.string,
     image: PropTypes.string,
-    flag: PropTypes.string,
-    count: PropTypes.string,
+    flag: PropTypes.number,
+    count: PropTypes.number,
     firebaseKey: PropTypes.string,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,

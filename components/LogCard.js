@@ -22,7 +22,7 @@ function LogCard({ logObj, onUpdate }) {
       }}
     >
       <Card.Body className="card-info">
-        <Card.Title class="titleC" style={{ fontSize: '30px' }}><b style={{ color: 'bisque' }}>{logObj.dateId}</b></Card.Title>
+        <Card.Title className="titleC" style={{ fontSize: '30px' }}><b style={{ color: 'bisque' }}>{logObj.dateId}</b></Card.Title>
         <Card.Subtitle className="mb-2">{logObj.locationId}</Card.Subtitle>
         <Card.Text>
           {logObj.notes}

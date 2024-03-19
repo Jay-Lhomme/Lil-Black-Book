@@ -1,12 +1,14 @@
 // import { useEffect, useState } from 'react';
 
 // function Map() {
+//   // eslint-disable-next-line no-unused-vars
 //   const [map, setMap] = useState(null);
 
 //   useEffect(() => {
 //     const loadMap = async () => {
 //       try {
 //         // Load the Google Maps library asynchronously
+//         // eslint-disable-next-line no-shadow
 //         const { Map } = await window.google.maps.importLibrary('maps');
 
 //         // Create a new map instance

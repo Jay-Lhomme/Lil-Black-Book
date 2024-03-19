@@ -1,7 +1,7 @@
 import {
-  deleteSingleDate, getDatesLogs, getSingleDate,
+  deleteSingleDate, getDatesLogs, getSingleDate, test3uid, test4fbk,
 } from './dateData';
-import { deleteSingleLocation, getLocationslogs, getSingleLocation } from './locationData';
+import { deleteSingleLocation, getLocationsLogs, getSingleLocation } from './locationData';
 import { deleteSingleLog, getSingleLog } from './logData';
 
 // const viewLogDetails = (logFirebaseKey) => new Promise((resolve, reject) => {
@@ -22,12 +22,10 @@ const viewLogDetails = (logFirebaseKey) => new Promise((resolve, reject) => {
           getSingleLocation(logObject.locationId)
             .then((locationObject) => {
               resolve({ ...logObject, dateObject, locationObject });
-            })
-            .catch(reject);
-        })
-        .catch(reject);
+            });
+        });
     })
-    .catch(reject);
+    .catch((error) => reject(error));
 });
 
 const deleteDatesLogs = (dateId) => new Promise((resolve, reject) => {
@@ -41,16 +39,16 @@ const deleteDatesLogs = (dateId) => new Promise((resolve, reject) => {
   }).catch((error) => reject(error));
 });
 
-// const deleteTruthLogs = (uid) => new Promise((resolve, reject) => {
-//   test3(uid).then((truthArray) => {
-//     console.warn(truthArray, 'truth Logs');
-//     const deleteTruthPromises = truthArray.map((truth) => test4(truth.firebaseKey));
+const deleteTruthLogs = (uid) => new Promise((resolve, reject) => {
+  test3uid(uid).then((truthArray) => {
+    console.warn(truthArray, 'truth Logs');
+    const deleteTruthPromises = truthArray.map((truth) => test4fbk(truth.firebaseKey));
 
-//     Promise.all(deleteTruthPromises).then(() => {
-//       test4(uid).then(resolve);
-//     });
-//   }).catch((error) => reject(error));
-// });
+    Promise.all(deleteTruthPromises).then(() => {
+      test4fbk(uid).then(resolve);
+    });
+  }).catch((error) => reject(error));
+});
 
 // const deleteLocationLogs = (locationId) => new Promise((resolve, reject) => {
 //   getLocationslogs(locationId).then((logsArray) => {
@@ -64,16 +62,16 @@ const deleteDatesLogs = (dateId) => new Promise((resolve, reject) => {
 // });
 
 const deleteLocationLogs = (locationId) => new Promise((resolve, reject) => {
-  getLocationslogs(locationId).then((logsArray) => {
+  getLocationsLogs(locationId).then((logsArray) => {
     console.warn(logsArray, 'Location Logs');
-    const deletelogPromises = logsArray.map((log) => deleteSingleLog(log.firebaseKey)); // Assuming each log has an 'id' property
+    const deleteLogPromises = logsArray.map((log) => deleteSingleLog(log.firebaseKey));
 
-    Promise.all(deletelogPromises).then(() => {
-      deleteSingleLocation(locationId).then(resolve).catch(reject);
-    }).catch(reject);
+    Promise.all(deleteLogPromises).then(() => {
+      deleteSingleLocation(locationId).then(resolve);
+    });
   }).catch((error) => reject(error));
 });
 
 export {
-  viewLogDetails, deleteDatesLogs, deleteLocationLogs,
+  viewLogDetails, deleteDatesLogs, deleteLocationLogs, deleteTruthLogs,
 };

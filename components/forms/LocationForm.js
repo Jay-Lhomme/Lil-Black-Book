@@ -2,6 +2,7 @@ import { FloatingLabel, Button, Form } from 'react-bootstrap';
 import { React, useEffect, useState } from 'react';
 import { PropTypes } from 'prop-types';
 import { useRouter } from 'next/router';
+// import usePlacesAutocomplete from 'use-places-autocomplete';
 import { useAuth } from '../../utils/context/authContext';
 import { createLocation, updateLocation } from '../../api/locationData';
 
