@@ -20,17 +20,17 @@ export default function ViewLog() {
   return (
     <div className="mt-5 d-flex flex-wrap">
       <div className="d-flex flex-column">
-        <img src={logDetails.dateId?.image} alt={logDetails.dateId?.name} style={{ width: '300px' }} />
+        <img src={logDetails.dateObject?.image} alt={logDetails.dateobject?.name} style={{ width: '300px' }} />
         <Link href="/dates" passHref>
           <Button variant="warning" className="m-2">return</Button>
         </Link>
       </div>
       <div className="text-white ms-5 details">
         <h1>
-          <b style={{ color: 'bisque' }}>DATE:</b> {logDetails.dateId}
+          <b style={{ color: 'bisque' }}>DATE:</b> {logDetails.dateobject?.name}
         </h1>
         <h1>
-          <b style={{ color: 'bisque' }}>LOCATION:</b> {logDetails.locationId}
+          <b style={{ color: 'bisque' }}>LOCATION:</b> {logDetails.locationObject?.name}
         </h1>
         <hr />
         <h3>

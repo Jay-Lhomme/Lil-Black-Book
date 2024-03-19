@@ -14,12 +14,15 @@ function LogCard({ logObj, onUpdate }) {
   // const locationObj = locations.find((location) => location.firebaseKey === logObj.locationId);
 
   return (
-    <Card style={{
-      width: '18rem', margin: '10px', background: 'dimgrey', color: 'seashell', border: 'solid goldenrod 5px',
-    }}
+
+    <Card
+      className="cardC"
+      style={{
+        width: '18rem', margin: '10px', background: 'dimgrey', color: 'seashell', border: 'solid goldenrod 5px',
+      }}
     >
-      <Card.Body>
-        <Card.Title style={{ fontSize: '30px' }}><b style={{ color: 'bisque' }}>{logObj.dateId}</b></Card.Title>
+      <Card.Body className="card-info">
+        <Card.Title className="titleC" style={{ fontSize: '30px' }}><b style={{ color: 'bisque' }}>{logObj.dateId}</b></Card.Title>
         <Card.Subtitle className="mb-2">{logObj.locationId}</Card.Subtitle>
         <Card.Text>
           {logObj.notes}
@@ -31,7 +34,7 @@ function LogCard({ logObj, onUpdate }) {
         </Link>
         {/* EDIT BUTTON */}
         <Link href={`/logs/edit/${logObj.firebaseKey}`} passHref>
-          <Button variant="warning">EDIT</Button>
+          <Button variant="warning" className="m-2">EDIT</Button>
         </Link>
         {/* {DELETE BUTTON} */}
         <Button variant="danger" onClick={deleteThislog} className="m-2">

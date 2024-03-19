@@ -13,28 +13,32 @@ function LocationCard({ locationObj, onUpdate }) {
   };
 
   return (
-    <Card style={{
-      width: '18rem', margin: '10px', background: 'dimgrey', color: 'seashell', border: 'solid goldenrod 5px',
-    }}
+    <Card
+      className="cardC"
+      style={{
+        width: '18rem', margin: '10px', background: 'dimgrey', color: 'seashell', border: 'solid goldenrod 5px',
+      }}
     >
-      <Card.Img variant="top" src="holder.js/100px180" />
-      <Card.Title>{locationObj.name}</Card.Title>
-      <Card.Subtitle>{locationObj.address}</Card.Subtitle>
-      <Card.Text>
-        Visits: {locationObj.count}
-      </Card.Text>
-      {/* NOTES BUTTON */}
-      <Link href={`/locations/${locationObj.firebaseKey}`} passHref>
-        <Button variant="success" className="m-2">Notes</Button>
-      </Link>
-      {/* EDIT BUTTON */}
-      <Link href={`/locations/edit/${locationObj.firebaseKey}`} passHref>
-        <Button variant="warning" className="m-2">EDIT</Button>
-      </Link>
-      {/* {DELETE BUTTON} */}
-      <Button variant="danger" onClick={deleteThisLocation} className="m-2">
-        DELETE
-      </Button>
+      <div>
+        {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
+        <Card.Title className="title">{locationObj.name}</Card.Title>
+        <Card.Subtitle>{locationObj.address}</Card.Subtitle>
+        <Card.Text>
+          Visits: {locationObj.count}
+        </Card.Text>
+        {/* NOTES BUTTON */}
+        <Link href={`/locations/${locationObj.firebaseKey}`} passHref>
+          <Button variant="success" className="m-2">Notes</Button>
+        </Link>
+        {/* EDIT BUTTON */}
+        <Link href={`/locations/edit/${locationObj.firebaseKey}`} passHref>
+          <Button variant="warning" className="m-2">EDIT</Button>
+        </Link>
+        {/* {DELETE BUTTON} */}
+        <Button variant="danger" onClick={deleteThisLocation} className="m-2">
+          DELETE
+        </Button>
+      </div>
     </Card>
   );
 }

@@ -4,6 +4,7 @@ import {
 import { React, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
+// import { propTypes } from 'react-bootstrap/esm/Image';
 import { useAuth } from '../../utils/context/authContext';
 import { updateDate, createDate } from '../../api/dateData';
 
@@ -16,8 +17,9 @@ const initialState = {
   relation: '',
   email: '',
   notes: '',
-  count: '',
   flag: '',
+  count: '',
+  active: '',
 };
 
 function DateForm({ obj }) {
@@ -27,11 +29,26 @@ function DateForm({ obj }) {
   const { user } = useAuth();
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormInput((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
+    const { name, value, checked } = e.target;
+    const updatedValue = e.target.type === 'checkbox' ? checked : value;
+    setFormInput((prevState) => {
+      if (name === 'flag' && updatedValue === 4) {
+        return {
+          ...prevState,
+          [name]: updatedValue,
+          active: false,
+        };
+      }
+      return {
+        ...prevState,
+        [name]: updatedValue,
+      };
+
+      // setFormInput((prevState) => ({
+      //   ...prevState,
+      //   [name]: updatedValue,
+      // }));
+    });
   };
 
   useEffect(() => {
@@ -47,6 +64,7 @@ function DateForm({ obj }) {
         notes: obj.notes,
         count: obj.count,
         flag: obj.flag,
+        active: obj.active,
         uid: obj.uid,
         firebaseKey: obj.firebaseKey,
       });
@@ -55,6 +73,13 @@ function DateForm({ obj }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if ((formInput.flag) === 4 && (formInput.active) === true) {
+      setFormInput((prevState) => ({
+        ...prevState,
+        active: false,
+      }));
+    }
+
     if (obj.firebaseKey) {
       updateDate(formInput).then(() => router.push(`/dates/${obj.firebaseKey}`));
     } else {
@@ -287,6 +312,23 @@ function DateForm({ obj }) {
               />
             </FloatingLabel>
 
+            {/* {ACTIVE INPUT} */}
+            <FloatingLabel
+              controlId="floatingInput12"
+              label="Active"
+              className="sub_titleF"
+            >
+
+              <Form.Check
+                className="form_styleF"
+                type="switch"
+                id="custom-switch"
+                name="active"
+                checked={formInput.active}
+                onChange={handleChange}
+              />
+            </FloatingLabel>
+
             {/* {SUBMIT BUTTON} */}
             <Button className="btnF" type="submit">{obj.firebaseKey ? 'Update' : 'Create'} Date</Button>
           </div>
@@ -305,11 +347,12 @@ DateForm.propTypes = {
     gender: PropTypes.string,
     orientation: PropTypes.string,
     relation: PropTypes.string,
-    number: PropTypes.string,
+    number: PropTypes.number,
     email: PropTypes.string,
     notes: PropTypes.string,
-    flag: PropTypes.string,
-    count: PropTypes.string,
+    flag: PropTypes.number,
+    count: PropTypes.number,
+    active: PropTypes.bool,
     uid: PropTypes.string,
     firebaseKey: PropTypes.string,
   }),

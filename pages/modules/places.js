@@ -1,16 +1,12 @@
-/* eslint-disable camelcase */
-/* eslint-disable import/no-extraneous-dependencies */
-
 'use client';
 
 import { useState, useMemo } from 'react';
 import { PropTypes } from 'react-bootstrap/esm/Image';
 import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
-import usePlacesAutocomplete, { getGeocode, getLatLng } from 'use-places-autocomplete';
+import { usePlacesAutocomplete, getGeocode, getLatLng } from 'use-places-autocomplete';
 import {
-  Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption,
+  Combobox, ComboboxInput, ComboboxList, ComboboxOption, ComboboxPopover,
 } from '@reach/combobox';
-// import '../styles/globals.module.css';
 
 export default function Places() {
   const { isLoaded } = useLoadScript({
@@ -18,7 +14,7 @@ export default function Places() {
     libraries: ['places'],
   });
 
-  if (isLoaded) return <div>Loading...</div>;
+  if (!isLoaded) return <div>Loading...</div>;
   return <Map />;
 }
 
@@ -72,7 +68,7 @@ const PlacesAutocomplete = ({ setSelected }) => {
       />
       <ComboboxPopover>
         <ComboboxList>
-          {status === 'OK' && data.map(({ place_id, description }) => (<ComboboxOption key={place_id} value={description} />
+          {status === 'OK' && data.map(({ placeId, description }) => (<ComboboxOption key={placeId} value={description} />
           ))}
         </ComboboxList>
       </ComboboxPopover>

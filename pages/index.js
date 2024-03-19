@@ -20,7 +20,7 @@ function ToxicAffirmations() {
       "Remember, loyal people, they don't respond",
       "How are they gonna know, they're never gonna know",
       "You didn't wreck their home, they should have built it on a more solid foundation",
-
+      "Don't let others stop you from getting what you want, especially if what you want is theirs",
     ];
 
     const randomIndex = Math.floor(Math.random() * randomAffirmation.length);
@@ -30,17 +30,17 @@ function ToxicAffirmations() {
   return (
     <div className="text-center my-4">
       <div>
-        <h3 style={{ color: 'goldenrod', fontWeight: 'bold' }}><u>DAILY AFFIRMATIONS</u></h3>
-        <h1 style={{ color: 'goldenrod', font: '30px' }}>{affirmation()}</h1>
+        <h3 className="sub_titleF" style={{ color: 'goldenrod', fontWeight: 'bold' }}><u>DAILY AFFIRMATIONS</u></h3>
+        <h1 className="sub_titleF" style={{ color: 'goldenrod', font: '30px' }}>{affirmation()}</h1>
       </div>
       <Link href="/dates/new" passHref>
-        <Button style={{ margin: '10px' }} variant="warning">Add a Date</Button>
+        <Button className="btnF" style={{ margin: '10px' }} variant="warning">Add a Date</Button>
       </Link>
       <Link href="/locations/new" passHref>
-        <Button style={{ margin: '10px' }} variant="warning">Add a Location</Button>
+        <Button className="btnF" style={{ margin: '10px' }} variant="warning">Add a Location</Button>
       </Link>
       <Link href="/logs/new" passHref>
-        <Button style={{ margin: '10px' }} variant="warning">Add a log</Button>
+        <Button className="btnF" style={{ margin: '10px' }} variant="warning">Add a log</Button>
       </Link>
 
     </div>

@@ -2,9 +2,9 @@
 import { Button } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { useAuth } from '../utils/context/authContext';
-import { getActiveDates, getInactiveDates, getDates } from '../api/dateData';
-import DateCard from '../components/DateCard';
+import { useAuth } from '../../utils/context/authContext';
+import { getActiveDates, getInactiveDates, getDates } from '../../api/dateData';
+import DateCard from '../../components/DateCard';
 
 function Dates() {
   const [dates, setDates] = useState([]);
