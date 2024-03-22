@@ -5,8 +5,9 @@ import PropTypes from 'prop-types';
 
 // eslint-disable-next-line react/prop-types
 function Google({ onSignInClick }) {
-  function navigate() {
-    window.open('https://en.wikipedia.org/wiki/Roman_Empire');
+  function navigate(event) {
+    event.preventDefault();
+    window.location.href = 'https://en.wikipedia.org/wiki/Roman_Empire';
   }
 
   function handleSignInClick() {

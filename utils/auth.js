@@ -8,6 +8,7 @@ const signIn = () => {
 
 const signOut = () => {
   firebase.auth().signOut();
+  window.location.href = 'https://www.youtube.com/watch?v=sAzaIP-_3jU';
 };
 
 export { signIn, signOut };

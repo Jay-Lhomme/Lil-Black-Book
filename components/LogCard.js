@@ -11,6 +11,11 @@ function LogCard({ logObj, onUpdate }) {
     }
   };
 
+  // useEffect(() => {
+  //   getDates(user.uid).then(setDates);
+  //   getLocations(user.uid).then(setLocations);
+  // }, []);
+
   // const locationObj = locations.find((location) => location.firebaseKey === logObj.locationId);
 
   return (

@@ -16,13 +16,13 @@ export default function ViewDate() {
   }, [firebaseKey]);
 
   const flagCount = () => {
-    if (dateDetails.flag === 1) {
+    if (dateDetails.flag === '1') {
       return 'solid goldenrod 20px';
-    } if (dateDetails.flag === 2) {
+    } if (dateDetails.flag === '2') {
       return 'solid orangered 20px';
-    } if (dateDetails.flag === 3) {
+    } if (dateDetails.flag === '3') {
       return 'solid darkred 20px';
-    } if (dateDetails.flag === 4) {
+    } if (dateDetails.flag === '4') {
       return 'solid black 20px';
     }
     return 'solid dimgrey 20px';

@@ -6,23 +6,33 @@ const SearchBar = () => {
   const router = useRouter();
 
   const handleKeyUp = (e) => {
-    setSearchTerm(e.target.value);
-    router.push(`/search/${e.target.value}`);
+    const term = e.target.value.trim();
+    setSearchTerm(term);
+    if (term !== '') {
+      router.push(`/search/${term}`);
+    }
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    router.push(`/search/${searchTerm}`);
+    const term = searchTerm.trim();
+    if (term !== '') {
+      router.push(`/search/${term}`);
+    }
   };
 
   return (
     <form onSubmit={handleSubmit}>
+      <label htmlFor="search">Search:</label>
       <input
         type="text"
+        id="search"
         placeholder="Search..."
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
         onKeyUp={handleKeyUp}
       />
+      <button type="submit">Submit</button>
     </form>
   );
 };
