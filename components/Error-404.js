@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 // eslint-disable-next-line react/prop-types
 function Error({ onSignInClick }) {
   function navigate() {
-    window.open('https://en.wikipedia.org/wiki/List_of_HTTP_status_codes');
+    window.location.href = 'https://en.wikipedia.org/wiki/List_of_HTTP_status_codes';
   }
 
   function handleSignInClick() {

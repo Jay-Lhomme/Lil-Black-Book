@@ -21,12 +21,21 @@ body {
   background-color: black;
   background-image: url(https://i0.wp.com/www.17patterns.com/wp-content/uploads/2021/10/A17-VE-07W_Venation-Dark-SQ-WEB.jpg?fit=1600%2C1600&ssl=1);
   background-size: cover;
+  /* background-color:#556;
+  background-image: linear-gradient(30deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445),
+  linear-gradient(150deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445),
+  linear-gradient(30deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445),
+  linear-gradient(150deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445),
+  linear-gradient(60deg, #99a 25%, transparent 25.5%, transparent 75%, #99a 75%, #99a), 
+  linear-gradient(60deg, #99a 25%, transparent 25.5%, transparent 75%, #99a 75%, #99a);
+  background-size:80px 140px;
+  background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px; */
 }
  /* nav {
   background-color: goldenrod; color: goldenrod; font-size: larger;
  } */
 
- #Container {
+ .Container {
   background-color: goldenrod; color: goldenrod; font-size: larger;
  }
  
@@ -117,7 +126,7 @@ body {
 .cardC {
   --background: linear-gradient(to left, #f7ba2b 0%, #ea5358 100%);
   width: 190px;
-  height: 400px;
+  height: 350px;
   padding: 5px;
   border-radius: 1rem;
   overflow: visible;
@@ -160,4 +169,50 @@ body {
 
 /* wallpaper */
 
+/* Card */
+.cardD {
+  --background: linear-gradient(to left, #f7ba2b 0%, #ea5358 100%);
+  width: 190px;
+  height: 450px;
+  padding: 5px;
+  border-radius: 1rem;
+  overflow: visible;
+  background: #f7ba2b;
+  background: var(--background);
+  position: relative;
+  z-index: 1;
+ }
+ 
+ .cardD::after {
+  position: absolute;
+  content: "";
+  top: 30px;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  transform: scale(0.8);
+  filter: blur(25px);
+  background: #f7ba2b;
+  background: var(--background);
+  transition: opacity .5s;
+ }
+ 
+ .cardD .titleD {
+  font-weight: bold;
+  letter-spacing: .1em;
+ }
+ 
+ /*Hover*/
+ .cardD:hover::after {
+  opacity: 0;
+ }
+ 
+ .cardD:hover .card-infoD {
+  color: #f7ba2b;
+  transition: color 1s;
+ }
+
+/* wallpaper */
  

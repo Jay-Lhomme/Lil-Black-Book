@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { getDates } from '../../api/dateData';
@@ -20,17 +19,29 @@ const SearchPage = () => {
 
   useEffect(() => {
     if (searchTerm && searchTerm !== '') {
-      const filtered = dates.filter((date) => date.title.toLowerCase().includes(searchTerm.toLowerCase()));
+      const filtered = dates.filter((date) => date.name.toLowerCase().includes(searchTerm.toLowerCase()));
       setFilteredDates(filtered);
     } else {
       setFilteredDates(dates);
     }
   }, [searchTerm, dates]);
 
+  const handleUpdate = (updatedDate) => {
+    // Find the index of the updated date in the dates array
+    const index = dates.findIndex((date) => date.firebaseKey === updatedDate.firebaseKey);
+    if (index !== -1) {
+      // Update the dates array with the updated date
+      const updatedDates = [...dates];
+      updatedDates[index] = updatedDate;
+      setDates(updatedDates);
+      setFilteredDates(updatedDates); // Update filteredDates as well
+    }
+  };
+
   return (
     <div style={{ color: 'goldenrod' }}>
       {filteredDates.map((date) => (
-        <DateCard key={date.firebaseKey} dateObject={date} onUpdate={dates} />
+        <DateCard key={date.firebaseKey} dateObj={date} onUpdate={handleUpdate} />
       ))}
     </div>
   );

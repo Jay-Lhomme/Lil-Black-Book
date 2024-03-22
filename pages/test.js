@@ -25,7 +25,8 @@
 // export default Lies;
 
 import { useMemo } from 'react';
-import { GoogleMap, useLoadScript, AdvancedMarker } from '@react-google-maps/api';
+import { GoogleMap, useLoadScript } from '@react-google-maps/api';
+import { AdvancedMarker } from '@vis.gl/react-google-maps';
 
 export default function Home() {
   const { isLoaded } = useLoadScript({

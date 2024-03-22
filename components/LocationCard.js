@@ -48,7 +48,7 @@ LocationCard.propTypes = {
     name: PropTypes.string,
     address: PropTypes.string,
     notes: PropTypes.string,
-    count: PropTypes.number,
+    count: PropTypes.string,
     firebaseKey: PropTypes.string,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,

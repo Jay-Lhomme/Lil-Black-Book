@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-catch */
 import {
   deleteSingleDate, getDatesLogs, getSingleDate, test3uid, test4fbk,
 } from './dateData';
@@ -16,17 +17,34 @@ import { deleteSingleLog, getSingleLog } from './logData';
 
 const viewLogDetails = (logFirebaseKey) => new Promise((resolve, reject) => {
   getSingleLog(logFirebaseKey)
-    .then((logObject) => {
-      getSingleDate(logObject.dateId)
-        .then((dateObject) => {
-          getSingleLocation(logObject.locationId)
-            .then((locationObject) => {
-              resolve({ ...logObject, dateObject, locationObject });
+    .then((logObj) => {
+      getSingleDate(logObj.dateId)
+        .then((dateObj) => {
+          getSingleLocation(logObj.locationId)
+            .then((locationObj) => {
+              resolve({ ...logObj, dateObj, locationObj });
             });
         });
     })
     .catch((error) => reject(error));
 });
+
+// const viewLogDetails = async (logFirebaseKey) => {
+//   try {
+//     // Fetch the log data
+//     const logObj = await getSingleLog(logFirebaseKey);
+//     // Fetch the date data using logObj.dateId
+//     const dateObj = await getSingleDate(logObj.dateId);
+//     // Fetch the location data using logObj.locationId
+//     const locationObj = await getSingleLocation(logObj.locationId);
+
+//     // Combine all retrieved data and return
+//     return { ...logObj, dateObj, locationObj };
+//   } catch (error) {
+//     // Handle errors
+//     throw error;
+//   }
+// };
 
 const deleteDatesLogs = (dateId) => new Promise((resolve, reject) => {
   getDatesLogs(dateId).then((logsArray) => {

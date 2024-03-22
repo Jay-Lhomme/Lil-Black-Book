@@ -1,14 +1,14 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import { PropTypes } from 'react-bootstrap/esm/Image';
+import PropTypes from 'prop-types';
 import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
 import { usePlacesAutocomplete, getGeocode, getLatLng } from 'use-places-autocomplete';
 import {
   Combobox, ComboboxInput, ComboboxList, ComboboxOption, ComboboxPopover,
 } from '@reach/combobox';
 
-export default function Places() {
+function Places() {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
     libraries: ['places'],
@@ -79,3 +79,5 @@ const PlacesAutocomplete = ({ setSelected }) => {
 PlacesAutocomplete.propTypes = {
   setSelected: PropTypes.func.isRequired,
 };
+
+export { Places, Map, PlacesAutocomplete };
