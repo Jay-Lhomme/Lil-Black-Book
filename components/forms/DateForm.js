@@ -32,7 +32,7 @@ function DateForm({ obj }) {
     const { name, value, checked } = e.target;
     const updatedValue = e.target.type === 'checkbox' ? checked : value;
     setFormInput((prevState) => {
-      if (name === 'flag' && updatedValue === 4) {
+      if (name === 'flag' && updatedValue === '4') {
         return {
           ...prevState,
           [name]: updatedValue,
@@ -43,11 +43,6 @@ function DateForm({ obj }) {
         ...prevState,
         [name]: updatedValue,
       };
-
-      // setFormInput((prevState) => ({
-      //   ...prevState,
-      //   [name]: updatedValue,
-      // }));
     });
   };
 
@@ -73,7 +68,7 @@ function DateForm({ obj }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if ((formInput.flag) === 4 && (formInput.active) === true) {
+    if ((formInput.flag) === '4' && (formInput.active) === true) {
       setFormInput((prevState) => ({
         ...prevState,
         active: false,
