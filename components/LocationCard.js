@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Button, Card } from 'react-bootstrap';
 // import { deleteSingleLocation } from '../api/locationData';
 import { deleteLocationLogs } from '../api/mergedData';
+import Intro from './map/Intro';
 
 function LocationCard({ locationObj, onUpdate }) {
   const deleteThisLocation = () => {
@@ -21,8 +22,8 @@ function LocationCard({ locationObj, onUpdate }) {
     >
       <div>
         {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
-        <Card.Title className="title">{locationObj.name}</Card.Title>
-        <Card.Subtitle>{locationObj.address}</Card.Subtitle>
+        {Intro()}
+        <Card.Title className="title">{locationObj.name}</Card.Title>        <Card.Subtitle>{locationObj.address}</Card.Subtitle>
         <Card.Text>
           Visits: {locationObj.count}
         </Card.Text>

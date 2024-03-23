@@ -21,7 +21,7 @@ export default function ViewLog() {
     <div className="mt-5 d-flex flex-wrap">
       <div className="d-flex flex-column">
         <img src={logDetails.image} alt={logDetails.dateObj?.name} style={{ width: '300px' }} />
-        <Link href="/dates" passHref>
+        <Link href="/logs" passHref>
           <Button variant="warning" className="m-2">return</Button>
         </Link>
       </div>
